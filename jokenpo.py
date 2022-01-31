@@ -23,6 +23,17 @@ def jo_ken_po():
     sleep(0.5)
 
 
+def new_game():
+    question = input('Deseja jogar novamente? "S" para SIM e "N" para NÃO:\n').upper()
+
+    if question == "S":
+        start()
+
+    else:
+        print('Encerrando programa, até mais')
+        sys.exit()
+
+
 invalid_input = True
 possibilidades = ('Pedra', 'Papel', 'Tesoura')
 computador = randint(0, 2)
@@ -38,6 +49,7 @@ def start():
         print('\nBem-vindo ao jogo do Jokenpo!')
 
     count += 1
+
     jogador = int(input('\nEscolha um:\n[0] Pedra\n[1] Papel\n[2] Tesoura\n\n '))
     jo_ken_po()
     print_jogadas()
@@ -66,15 +78,7 @@ def start():
         elif computador == 1:
             print('Você venceu!')
 
-
-    new_game = input('Deseja jogar novamente? "S" para SIM e "N" para NÃO:\n').upper()
-
-    if new_game == "S":
-        start()
-
-    else:
-        print('Encerrando programa, até mais')
-        sys.exit()
+    new_game()
 
 
 while invalid_input:
