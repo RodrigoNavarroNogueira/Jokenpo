@@ -5,13 +5,14 @@ import sys
 
 def inicio():
     print('*-' * 30)
-    print('{:=^60}'.format(' JOGO DO JOKENPO '))
+    print(f'{" JOGO DO JOKENPO ":=^60}')
     print('*-' * 30)
 
 
-def print_jogadas():
+def print_jogadas(jogador, computador):
+    possibilidades = ['Pedra', 'Papel', 'Tesoura']
+    print(f'O jogador jogou {possibilidades[jogador]}')
     print(f'O computador jogou {possibilidades[computador]}')
-    print(f'Você jogou {possibilidades[jogador]}')
 
 
 def jo_ken_po():
@@ -34,14 +35,6 @@ def new_game():
         sys.exit()
 
 
-invalid_input = True
-possibilidades = ('Pedra', 'Papel', 'Tesoura')
-computador = randint(0, 2)
-jogador = 0
-count = 0
-inicio()
-
-
 def start():
     global count
 
@@ -52,7 +45,8 @@ def start():
 
     jogador = int(input('\nEscolha um:\n[0] Pedra\n[1] Papel\n[2] Tesoura\n\n '))
     jo_ken_po()
-    print_jogadas()
+
+    print_jogadas(jogador, computador)
 
     if jogador == computador:
         print('Empatamos!')
@@ -80,6 +74,14 @@ def start():
 
     new_game()
 
+
+invalid_input = True
+
+computador = randint(0, 2)
+jogador = -1
+count = 0
+
+inicio()
 
 while invalid_input:
     start()
