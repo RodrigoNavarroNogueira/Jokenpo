@@ -1,6 +1,7 @@
 from random import randint
 from time import sleep
 import sys
+# python -m jokenpo
 
 
 def inicio():
